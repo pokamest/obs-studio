@@ -1,0 +1,21 @@
+# Hashes of file build rules.
+1c67deefe3aad778d2440e769e16d46a UI/CMakeFiles/obs_automoc
+badb615980dfa524ee63c89e9375dfca UI/frontend-plugins/frontend-tools/CMakeFiles/frontend-tools_automoc
+9e56f84da50e66415262b2135516b1e4 UI/frontend-plugins/frontend-tools/ui_auto-scene-switcher.h
+8470bf61353422c91e921b1aa93690be UI/frontend-plugins/frontend-tools/ui_output-timer.h
+4287e26939028ad83e436626e27c57d1 UI/qrc_obs.cpp
+a82a4a29c1f031d8787e1654d932fd6e UI/ui_AutoConfigStartPage.h
+7468ca0ad8d96c374725c9015a9a68be UI/ui_AutoConfigStreamPage.h
+fe942b192606582aed058a8b3a25c639 UI/ui_AutoConfigTestPage.h
+fd84b0f316f3ea8d34e07b89a78e8a99 UI/ui_AutoConfigVideoPage.h
+8698ad165167c22c3fb5e41b7ef7d8c8 UI/ui_NameDialog.h
+bc3107968118b8a8f34582cfc0913f19 UI/ui_OBSBasic.h
+ee06062dd0fd3fab19fe40fc0e45b036 UI/ui_OBSBasicFilters.h
+4f8fb145e46cd549dab942e18da5981e UI/ui_OBSBasicInteraction.h
+9010ff0b6769def94008149f6ccc98e9 UI/ui_OBSBasicSettings.h
+810e0a91819db3f51811c48ef82f64e4 UI/ui_OBSBasicSourceSelect.h
+bb64506110398ad43f3f367c93661b58 UI/ui_OBSBasicTransform.h
+7667608c46e6b36f154d1d1e6c2da366 UI/ui_OBSLicenseAgreement.h
+7acc5644651d0e2b49e90cac831456d1 UI/ui_OBSLogReply.h
+f35bdce08b4ca94bbcaed7b010dc3b31 UI/ui_OBSRemux.h
+c842d6adb9b386b92d139a3150b4ad0a UI/ui_OBSUpdate.h

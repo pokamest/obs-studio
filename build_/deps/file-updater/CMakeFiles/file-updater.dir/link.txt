@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfile-updater.a  CMakeFiles/file-updater.dir/file-updater/file-updater.c.o
+/usr/bin/ranlib libfile-updater.a

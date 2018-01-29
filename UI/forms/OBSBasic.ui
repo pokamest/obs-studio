@@ -24,7 +24,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>.MainWindow</string>
+   <string>C LIVE - OBS Studio</string>
   </property>
   <property name="windowIcon">
    <iconset resource="obs.qrc">
