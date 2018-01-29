@@ -185,8 +185,9 @@ private:
 
 	bool QueryChanges();
 
-	void LoadServiceTypes();
-	void LoadEncoderTypes();
+        void LoadServiceTypes();
+        void FixServiceTypes();
+        void LoadEncoderTypes();
 	void LoadColorRanges();
 	void LoadFormats();
 	void ReloadCodecs(const ff_format_desc *formatDesc);

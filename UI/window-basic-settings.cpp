@@ -769,16 +769,19 @@ void OBSBasicSettings::LoadServiceTypes()
 
         // set custom type on startup
         if (ui->streamType->currentIndex() == 0) {
-            QTimer::singleShot(0, [&](){
-                ui->streamType->setCurrentIndex(1);
-                on_streamType_currentIndexChanged(1);
-                emit ui->streamType->currentIndexChanged(1);
-            });
+            QTimer::singleShot(0, this, SLOT(FixServiceTypes()));
         }
         ui->streamType->hide();
         //ui->label_21->hide();
         ui->label_21->setText("C Live streaming server details");
 
+}
+
+void OBSBasicSettings::FixServiceTypes()
+{
+    ui->streamType->setCurrentIndex(1);
+    on_streamType_currentIndexChanged(1);
+    emit ui->streamType->currentIndexChanged(1);
 }
 
 #define TEXT_USE_STREAM_ENC \

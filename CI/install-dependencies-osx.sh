@@ -4,7 +4,8 @@ set -e
 # Echo all commands before executing
 set -v
 
-git fetch --unshallow
+# git fetch --unshallow
+git fetch
 
 # Leave obs-studio folder
 cd ../

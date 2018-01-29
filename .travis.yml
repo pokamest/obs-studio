@@ -35,19 +35,19 @@ matrix:
 
 script: cd ./build && make -j4 && cd -
 
-deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  skip_cleanup: true
-  local_dir: nightly
-  bucket: obs-nightly
-  region: us-west-2
-  acl: public_read
-  on:
-    repo: jp9000/obs-studio
-    condition: "$TRAVIS_OS_NAME = osx"
-    all_branches: true
+#deploy:
+#  provider: s3
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
+#  skip_cleanup: true
+#  local_dir: nightly
+#  bucket: obs-nightly
+#  region: us-west-2
+#  acl: public_read
+#  on:
+#    repo: jp9000/obs-studio
+#    condition: "$TRAVIS_OS_NAME = osx"
+#    all_branches: true
 
 # The channel name "azubu.il.us.quakenet.org#obs-dev" is encrypted against jp9000/obs-studio to prevent IRC spam of forks
 #notifications:
