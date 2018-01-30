@@ -5,7 +5,7 @@ elseif(WIN32 AND NOT CPACK_GENERATOR)
 	set(CPACK_GENERATOR "WIX" "ZIP")
 endif()
 
-set(CPACK_PACKAGE_NAME "OBS")
+set(CPACK_PACKAGE_NAME "C Live - OBS")
 set(CPACK_PACKAGE_VENDOR "obsproject.com")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OBS - Live video and audio streaming and recording software")
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/UI/data/license/gplv2.txt")
@@ -28,12 +28,13 @@ else()
 	set(OBS_VERSION "${OBS_VERSION_OVERRIDE}")
 endif()
 
+set(OBS_VERSION "C Live - OBS")
 MESSAGE(STATUS "OBS_VERSION: ${OBS_VERSION}")
 
 if(INSTALLER_RUN)
 	set(CPACK_PACKAGE_EXECUTABLES
-		"obs32" "OBS Studio (32bit)"
-		"obs64" "OBS Studio (64bit)")
+		"obs32" "C Live - OBS Studio (32bit)"
+		"obs64" "C Live - OBS Studio (64bit)")
 	set(CPACK_CREATE_DESKTOP_LINKS
 		"obs32"
 		"obs64")
@@ -66,7 +67,7 @@ if(INSTALLER_RUN)
 	set(CPACK_PACKAGE_FILE_NAME "obs-studio-${OBS_VERSION}")
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
 	if(WIN32)
-		set(CPACK_PACKAGE_NAME "OBS Studio (64bit)")
+		set(CPACK_PACKAGE_NAME "C Live - OBS Studio (64bit)")
 	endif()
 	set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "OBSStudio64")
 	set(CPACK_WIX_UPGRADE_GUID "44c72510-2e8e-489c-8bc0-2011a9631b0b")
@@ -74,7 +75,7 @@ elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
 	set(CPACK_PACKAGE_FILE_NAME "obs-studio-x64-${OBS_VERSION}")
 else()
 	if(WIN32)
-		set(CPACK_PACKAGE_NAME "OBS Studio (32bit)")
+		set(CPACK_PACKAGE_NAME "C Live - OBS Studio (32bit)")
 	endif()
 	set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "OBSStudio32")
 	set(CPACK_WIX_UPGRADE_GUID "a26acea4-6190-4470-9fb9-f6d32f3ba030")
