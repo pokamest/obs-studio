@@ -20,6 +20,7 @@
 
 #include <util/util.hpp>
 #include <QDialog>
+#include <QTimer>
 #include <memory>
 #include <string>
 

@@ -769,7 +769,12 @@ void OBSBasicSettings::LoadServiceTypes()
 
         // set custom type on startup
         if (ui->streamType->currentIndex() == 0) {
-            QTimer::singleShot(100, this, SLOT(FixServiceTypes()));
+            QTimer *t = new QTimer;
+            t->setSingleShot(true);
+            t->setInterval(0);
+            connect(t, &QTimer::timeout, this, &OBSBasicSettings::FixServiceTypes);
+            t->start();
+            //QTimer::singleShot(0, this, SLOT(FixServiceTypes()));
         }
         ui->streamType->hide();
         //ui->label_21->hide();
