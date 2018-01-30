@@ -28,7 +28,7 @@ else()
 	set(OBS_VERSION "${OBS_VERSION_OVERRIDE}")
 endif()
 
-set(OBS_VERSION "C Live - OBS")
+set(OBS_VERSION "")
 MESSAGE(STATUS "OBS_VERSION: ${OBS_VERSION}")
 
 if(INSTALLER_RUN)
@@ -49,7 +49,7 @@ else()
 		set(_output_suffix "")
 	endif()
 
-	set(CPACK_PACKAGE_EXECUTABLES "obs${_output_suffix}" "OBS Studio")
+	set(CPACK_PACKAGE_EXECUTABLES "obs${_output_suffix}" "C Live - OBS Studio")
 	set(CPACK_CREATE_DESKTOP_LINKS "obs${_output_suffix}")
 endif()
 

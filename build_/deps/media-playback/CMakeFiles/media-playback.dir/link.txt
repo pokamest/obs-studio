@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmedia-playback.a  CMakeFiles/media-playback.dir/media-playback/decode.c.o CMakeFiles/media-playback.dir/media-playback/media.c.o
-/usr/bin/ranlib libmedia-playback.a

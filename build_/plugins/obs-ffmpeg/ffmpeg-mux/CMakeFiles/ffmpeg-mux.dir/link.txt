@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wno-unused-function -Werror-implicit-function-declaration -Wno-missing-braces -Wno-missing-field-initializers  -std=gnu99 -fno-strict-aliasing -O2 -g -DNDEBUG   CMakeFiles/ffmpeg-mux.dir/ffmpeg-mux.c.o  -o ffmpeg-mux  -L/usr/local/../lib -rdynamic -lavcodec -lavutil -lavformat -Wl,-rpath,/usr/local/../lib: 
