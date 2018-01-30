@@ -53,7 +53,7 @@ else()
 	set(CPACK_CREATE_DESKTOP_LINKS "obs${_output_suffix}")
 endif()
 
-set(CPACK_BUNDLE_NAME "OBS")
+set(CPACK_BUNDLE_NAME "C Live - OBS Studio")
 set(CPACK_BUNDLE_PLIST "${CMAKE_SOURCE_DIR}/cmake/osxbundle/Info.plist")
 set(CPACK_BUNDLE_ICON "${CMAKE_SOURCE_DIR}/cmake/osxbundle/obs.icns")
 set(CPACK_BUNDLE_STARTUP_COMMAND "${CMAKE_SOURCE_DIR}/cmake/osxbundle/obslaunch.sh")
