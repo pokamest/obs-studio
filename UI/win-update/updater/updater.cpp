@@ -934,6 +934,7 @@ static bool Update(wchar_t *cmdLine)
 {
 	/* ------------------------------------- *
 	 * Check to make sure OBS isn't running  */
+	return false;
 
 	HANDLE hObsUpdateMutex = OpenMutexW(SYNCHRONIZE, false,
 			L"OBSStudioUpdateMutex");

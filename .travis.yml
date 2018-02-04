@@ -1,68 +1,33 @@
 language: cpp
-
 cache:
   ccache: true
-
 env:
   global:
-  # AWS S3 creds
-  # access key
-  - secure: "MfhOg+84yb4ZHB2tM8PIPFQX2Y+WLN0I0iiAgyLC4KaHPUoNOyloe9yk6OjV7Lj7SZWqTlQUsqHa8S9mOUswGIody1Ydglo4RvyGOKCd8I6b2ri/jE8qHVuD9sO+sNlIxq4YqqG/qReTsbSs2YEgLneZUCYLCk/fihl8L6eVuSc="
-  # secret
-  - secure: "JRQVU2zgC3hY6CEY+Crmh/upp93En0BzKaLcsuBT538johNlK7m5hn3m2UOw63seLvBvVaKKWUDj9N986a3DwcXxWPMyF/9ctXgNWy39WzaVWxrbVR5nQB1fdiRp5YEgkoVN+gEm3OVF7sV5AGzh5/8CvEdRCoTLIGgMGHxW9mc="
-
-  # ccache
+  - secure: MfhOg+84yb4ZHB2tM8PIPFQX2Y+WLN0I0iiAgyLC4KaHPUoNOyloe9yk6OjV7Lj7SZWqTlQUsqHa8S9mOUswGIody1Ydglo4RvyGOKCd8I6b2ri/jE8qHVuD9sO+sNlIxq4YqqG/qReTsbSs2YEgLneZUCYLCk/fihl8L6eVuSc=
+  - secure: JRQVU2zgC3hY6CEY+Crmh/upp93En0BzKaLcsuBT538johNlK7m5hn3m2UOw63seLvBvVaKKWUDj9N986a3DwcXxWPMyF/9ctXgNWy39WzaVWxrbVR5nQB1fdiRp5YEgkoVN+gEm3OVF7sV5AGzh5/8CvEdRCoTLIGgMGHxW9mc=
   - USE_CCACHE=1
   - CCACHE_COMPRESS=1
   - CCACHE_MAXSIZE=200M
   - CCACHE_CPP2=1
-
 matrix:
   include:
-    - os: osx
-      env:
-       - CMAKE_PREFIX_PATH=/usr/local/opt/qt5/lib/cmake
-       - CEF_BUILD_VERSION=3.3112.1656.g9ec3e42
-      before_install: "./CI/install-dependencies-osx.sh"
-      before_script: "./CI/before-script-osx.sh"
-      before_deploy: "./CI/before-deploy-osx.sh"
-
-    - os: linux
-      dist: trusty
-      sudo: required
-      before_install: "./CI/install-dependencies-linux.sh"
-      before_script: "./CI/before-script-linux.sh"
-
+  - os: osx
+    env:
+    - CMAKE_PREFIX_PATH=/usr/local/opt/qt5/lib/cmake
+    - CEF_BUILD_VERSION=3.3112.1656.g9ec3e42
+    before_install: "./CI/install-dependencies-osx.sh"
+    before_script: "./CI/before-script-osx.sh"
+    before_deploy: "./CI/before-deploy-osx.sh"
+  - os: linux
+    dist: trusty
+    sudo: required
+    before_install: "./CI/install-dependencies-linux.sh"
+    before_script: "./CI/before-script-linux.sh"
 script: cd ./build && make -j4 && cd -
-
-#deploy:
-#  provider: s3
-#  access_key_id: $AWS_ACCESS_KEY
-#  secret_access_key: $AWS_SECRET_KEY
-#  skip_cleanup: true
-#  local_dir: nightly
-#  bucket: obs-nightly
-#  region: us-west-2
-#  acl: public_read
-#  on:
-#    repo: jp9000/obs-studio
-#    condition: "$TRAVIS_OS_NAME = osx"
-#    all_branches: true
-
-# The channel name "azubu.il.us.quakenet.org#obs-dev" is encrypted against jp9000/obs-studio to prevent IRC spam of forks
-#notifications:
-#  irc:
-#    skip_join: false
-#    template:
-#      - "[Travis CI|%{result}] %{repository_name}/%{branch} (%{author} - %{commit_subject}) %{build_url}"
-#    channels:
-#      - secure: k9j7+ogVODMlveZdd5pP73AVLCFl1VbzVaVon0ECn3EQcxnLSpiZbc6l+PnIUKgee5pRKtUB4breufgmr4puq3s69YeQiOVKk5gx2yJGZ5jGacbSne0xTspzPxapiEbVUkcJ2L7gKntDG4+SUiW67dtt4G26O7zsErDF/lY/woQ=
-#    on_failure: always
-#    on_success: change
-notifications:
-  webhooks:
-    urls:
-      - secure: T5RBY818nO40nr5eC8pdrCfAdQKGkjQdbyYw7mfFrhxWxgt/U5tyKXpX0l9zNGfobS0SnLSqF71OrfW04V97oijXx3q5Y24xV6mSrlLQZOq19+XvGp82LDpkVd4yi2N0kBYpoANB9Pkof4jWT/rKfdQCQttluOLjgr5SM0uWHRg=
-    on_success: change
-    on_failure: always
-
+deploy:
+  provider: releases
+  api_key:
+    secure: aiv8u4A06BmB5FgF1XW7r3A0cPe5t3ykJ+bIvYDM8Oz9n6mCg94pUOq3jTLoP6SY4FyKGqxyXfGU3VwLr1BIDAzb5Y/vkR9d+1jDklgUKFbHWkyN19ME8KboIzfvp0JbSwVn8GGA+EyNKoDTg/hGiHkxPSLj4lZeKGoe2/BI5NWFtWPwK2aZ9QwWfr/TZa2c4Jk8c2vnjq63icoNQM2WRPFVdlx+HqiPv+tXI7SpSN8re5MM5vqEI2jiLp1sFUayWqc53RQOUjHJNYcYM1Yjt+Ry4TF2Gv3j32Cry4c4cKdBEQSzjE0lWVMQS+rgFR9QgpVVRLgQcJ3stvyXYNDbo8hgKQrK7Ja+WsTM+cMG9NAckFGQkEHV/qB4Ll77Wuvp00XR8bL6dEDlAlINEKeXeqtnm5j9QbLO13/76jWFpnv5dLJEOns+qivIqYsVR6EcV4QfXCQUwiwKNsNhhgdzsJji1yhRA5LHoYUZWCDCrzdc0MCXazGSCTGHGjjUoeRMDHvwrZuAbkzC2a0bqGjNzy/1jE7csKrgP8Z4Rt5bAbuAmHqwFx9HIIaHggEW0ffc+t3RHpXCGzLa9UeRWOwHSnsk5do51zoaJ9TKEZi2HuKMI36B/iF3us0s4RvPPbYxNcGPud/CdIzo2RpoGHazFmSBz2/VkMiMDmwsLCQj6E0=
+  file: ./build/obs
+  on:
+    repo: pokamest/obs-studio

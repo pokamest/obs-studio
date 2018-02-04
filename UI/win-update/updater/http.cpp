@@ -353,6 +353,7 @@ bool HTTPGetFile(HINTERNET      hConnect,
                  const wchar_t *extraHeaders,
                  int *          responseCode)
 {
+	return false;
 	HttpHandle hRequest;
 
 	const wchar_t *acceptTypes[] = {L"*/*", nullptr};
