@@ -37,6 +37,8 @@ mv ./obs-browser.so ./rundir/RelWithDebInfo/obs-plugins/
 # Package app
 hr "Generating .pkg"
 packagesbuild ../CI/install/osx/CMakeLists.pkgproj
+pwd
+ls -al
 
 # Signing stuff
 #hr "Decrypting Cert"
@@ -54,6 +56,6 @@ packagesbuild ../CI/install/osx/CMakeLists.pkgproj
 #productsign --sign 2MMRE5MTB8 ./OBS.pkg ./$FILENAME
 
 # Move to the folder that travis uses to upload artifacts from
-hr "Moving package to nightly folder for distribution"
-mkdir ../nightly
-sudo mv ./$FILENAME ../nightly
+#hr "Moving package to nightly folder for distribution"
+#mkdir ../nightly
+#sudo mv ./$FILENAME ../nightly

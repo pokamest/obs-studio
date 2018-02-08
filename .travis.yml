@@ -34,3 +34,15 @@ deploy:
     repo: pokamest/obs-studio
     tags: true
     all_branches: true
+    condition: $TRAVIS_OS_NAME = linux
+deploy:
+  provider: releases
+  api_key:
+    secure: aiv8u4A06BmB5FgF1XW7r3A0cPe5t3ykJ+bIvYDM8Oz9n6mCg94pUOq3jTLoP6SY4FyKGqxyXfGU3VwLr1BIDAzb5Y/vkR9d+1jDklgUKFbHWkyN19ME8KboIzfvp0JbSwVn8GGA+EyNKoDTg/hGiHkxPSLj4lZeKGoe2/BI5NWFtWPwK2aZ9QwWfr/TZa2c4Jk8c2vnjq63icoNQM2WRPFVdlx+HqiPv+tXI7SpSN8re5MM5vqEI2jiLp1sFUayWqc53RQOUjHJNYcYM1Yjt+Ry4TF2Gv3j32Cry4c4cKdBEQSzjE0lWVMQS+rgFR9QgpVVRLgQcJ3stvyXYNDbo8hgKQrK7Ja+WsTM+cMG9NAckFGQkEHV/qB4Ll77Wuvp00XR8bL6dEDlAlINEKeXeqtnm5j9QbLO13/76jWFpnv5dLJEOns+qivIqYsVR6EcV4QfXCQUwiwKNsNhhgdzsJji1yhRA5LHoYUZWCDCrzdc0MCXazGSCTGHGjjUoeRMDHvwrZuAbkzC2a0bqGjNzy/1jE7csKrgP8Z4Rt5bAbuAmHqwFx9HIIaHggEW0ffc+t3RHpXCGzLa9UeRWOwHSnsk5do51zoaJ9TKEZi2HuKMI36B/iF3us0s4RvPPbYxNcGPud/CdIzo2RpoGHazFmSBz2/VkMiMDmwsLCQj6E0=
+  file: /home/travis/build/pokamest/obs-studio/build/UI/obs
+  skip_cleanup: true
+  on:
+    repo: pokamest/obs-studio
+    tags: true
+    all_branches: true
+    condition: $TRAVIS_OS_NAME = osx
