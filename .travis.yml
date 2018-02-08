@@ -23,7 +23,7 @@ matrix:
     sudo: required
     before_install: "./CI/install-dependencies-linux.sh"
     before_script: "./CI/before-script-linux.sh"
-script: cd ./build && make -j4 && cd -
+script: cd ./build && make -j4 && cd - && ls -al && ls -al ./build && tree
 deploy:
   provider: releases
   api_key:

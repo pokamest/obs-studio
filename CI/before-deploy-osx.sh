@@ -26,7 +26,8 @@ if [ -n "${TRAVIS_TAG}" ]; then
   STABLE=true
 fi
 
-sudo python ../CI/install/osx/build_app.py --public-key ../CI/install/osx/OBSPublicDSAKey.pem --sparkle-framework ../../sparkle/Sparkle.framework --base-url "https://obsproject.com/osx_update" --stable=$STABLE
+#sudo python ../CI/install/osx/build_app.py --public-key ../CI/install/osx/OBSPublicDSAKey.pem --sparkle-framework ../../sparkle/Sparkle.framework --base-url "https://obsproject.com/osx_update" --stable=$STABLE
+sudo python ../CI/install/osx/build_app.py --sparkle-framework ../../sparkle/Sparkle.framework --base-url "https://google.com/osx_update" --stable=$STABLE
 
 # Move the CEF plugin back to where it belongs
 hr "Moving CEF back"
